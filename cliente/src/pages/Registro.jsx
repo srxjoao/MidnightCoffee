@@ -3,22 +3,24 @@ import { useState } from "react";
     //aspa simples para texto
   const [nome , setNome] = useState('');
   const [email, setEmail] = useState('');
+
   const criaUsuario = async (event) => {
     event.preventDefault();
     try{
-      await fetch("http:localhost:3000/usuarios",{
+      await fetch("http://localhost:3000/usuarios",{
         method:'POST',
-        headers:{'Content-Type': 'Applicantion/json'},
+                                   //Minusculo 
+        headers:{'Content-Type': 'Application/json'},
         //Passa a informação, passa o stringify para sair de texto para JSON
         body: JSON.stringify({
           nome: nome,
-          email: email
-        })
-      })
+          email: email,
+        }),
+      });
     }catch{
       alert("Deu erro baby");
     }
-    alert("Dados salvos! Nome: ${nome}, Email: ${email}");
+    alert("Dados salvos! Nome e Email");
   }
   return (
     <main>
@@ -28,7 +30,7 @@ import { useState } from "react";
           <input 
           type="text"
           value={nome}
-          onChange = {(event) => setNome(event.target.value)} required>
+          onChange = {(event) => setNome(event.target.value)}>
           </input>
           </label>
         <label>
@@ -36,7 +38,7 @@ import { useState } from "react";
           <input
           type="text"
           value={email}
-          onChange = {(event) => setEmail(event.target.value)} required>
+          onChange = {(event) => setEmail(event.target.value)}>
           </input>
         </label>
         <button type="subimt" onClick={criaUsuario}>Criar Usuário</button>
