@@ -15,7 +15,18 @@ export default function Home() {
       }
     }
     buscarUsuario();
-  }, [])
+  }, [usuarios])
+
+  const apagar = async(id) =>{
+    try{
+  
+  await  fetch("http://localhost:3000/usuarios"+ id, {
+    method: 'DELETE',
+  });
+    }catch{
+      alert("Desiste culpa do Marce Del Lino")
+    }
+  } 
 
   return (
     <table>
@@ -23,10 +34,12 @@ export default function Home() {
         <td>Nome</td>
         <td>E-mail</td>
       </tr>
+      <p>para listar usamos o map</p>
       {usuarios.map((usuario) =>
         <tr key={usuario.id}>
           <td>{usuario.nome}</td>
           <td>{usuario.email}</td>
+          <td><button onClick={()=> apagar(usuario.id)}> X </button></td>
         </tr>
       )}
     </table>
