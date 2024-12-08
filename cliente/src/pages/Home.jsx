@@ -20,16 +20,16 @@ export default function Home() {
   const apagar = async(id) =>{
     try{
   
-  await  fetch("http://localhost:3000/usuarios"+ id, {
+   await  fetch("http://localhost:3000/usuarios"+ id, {
     method: 'DELETE',
-  });
+   });
     }catch{
       alert("Desiste culpa do Marce Del Lino")
     }
-  } 
+   } 
 
-  return (
-    <table>
+   return (
+     <table>
       <tr>
         <td>Nome</td>
         <td>E-mail</td>
@@ -42,6 +42,6 @@ export default function Home() {
           <td><button onClick={()=> apagar(usuario.id)}> X </button></td>
         </tr>
       )}
-    </table>
+     </table>
   );
 }
