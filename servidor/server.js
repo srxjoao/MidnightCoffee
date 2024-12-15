@@ -9,11 +9,11 @@ let produtos = [];
 
 // Criar um novo produto
 app.post('/produtos', (req, res) => {
-    const { nome, descricao, preco, categoria, disponibilidade, tamanho, codigo } = req.body;
+    const { nome, descricao, preco, categoria, disponibilidade, tamanho, codigo, imagem } = req.body;
 
     // Validação de campos obrigatórios
-    if (!nome || !descricao || !preco || !categoria || !disponibilidade || !tamanho || !codigo) {
-        return res.status(400).json({ erro: 'Todos os campos são obrigatórios.' });
+    if (!nome || !descricao || !preco || !categoria || !disponibilidade || !tamanho || !codigo || !imagem) {
+        return res.status(400).json({ erro: 'Todos os campos são obrigatórios, incluindo a imagem.' });
     }
 
     const novoProduto = {
@@ -24,7 +24,8 @@ app.post('/produtos', (req, res) => {
         categoria,
         disponibilidade,
         tamanho,
-        codigo
+        codigo,
+        imagem // URL da imagem
     };
 
     produtos.push(novoProduto);
@@ -51,7 +52,7 @@ app.get('/produtos/:id', (req, res) => {
 // Atualizar informações de um produto
 app.put('/produtos/:id', (req, res) => {
     const { id } = req.params;
-    const { nome, descricao, preco, categoria, disponibilidade, tamanho, codigo } = req.body;
+    const { nome, descricao, preco, categoria, disponibilidade, tamanho, codigo, imagem } = req.body;
 
     const produto = produtos.find(p => p.id === parseInt(id));
 
@@ -67,6 +68,7 @@ app.put('/produtos/:id', (req, res) => {
     produto.disponibilidade = disponibilidade || produto.disponibilidade;
     produto.tamanho = tamanho || produto.tamanho;
     produto.codigo = codigo || produto.codigo;
+    produto.imagem = imagem || produto.imagem;
 
     res.status(200).json(produto);
 });

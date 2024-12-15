@@ -3,64 +3,51 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable'
 import {Button} from "@mui/material"
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import Produtos from "../components/Produtos";
+import Loading from "../components/Loading";
 export default function Home() {
 
-  const [usuarios, setUsuarios] = useState([]);
-
+  const [produtos, setProdutos] = useState([]);
+  
+ 
   useEffect(() => {
     const buscarUsuario = async () => {
       try {
-        const resposta = await fetch("http://localhost:3000/usuarios");
+        const resposta = await fetch("http://localhost:3000/produtos");
         const dados = await resposta.json();
-        setUsuarios(dados);
+        setProdutos(dados);
       } catch {
         alert('Ocorreu um erro no app!');
       }
     }
     buscarUsuario();
-  }, [usuarios])
+  }, [produtos])
 
-  const apagar = async(id) => {
-    try{
-    await  fetch("http://localhost:3000/usuarios/"+ id, {
-    method: 'DELETE',
-    });
-    }catch{
-      alert("Desiste culpa do Marce Del Lino")
-    }
-   } 
-   //Código trbalho final para gerar PDF
-   const exportarPDF = () => {
+  // Gera PDF
+    const exportarPDF = () => {
     const doc = new jsPDF();
-                  //Aki vai receber o nome do estado
-    const tabela = usuarios.map( usuario => [
-      usuario.id,
-      usuario.nome,
-      usuario.email
+    const tabela = produtos.map( produtos => [
+      produtos.id,
+      produtos.nome,
+      produtos.descricao,
+      produtos.preco,
+      produtos.categoria,
+      produtos.disponibilidade,
+      produtos.tamanho,
+      produtos.codigo,
     ]);
-    doc.text("Lista de Usuário", 10, 10);
+    doc.text("Lista De Produtos | Midnight Coffee", 10, 10);
     doc.autoTable({
-    head:[["id","Nome", "E-mail"]],
+    head:[["id","Nome", "Descrição", "Preço", "Categoria", "Disponibilidade","Tamanho", "Código", "Imagem"]],
     body: tabela
    });
-   doc.save("alunosIFMS")
+   doc.save("Relatório_Midnight Coffee")
    }
+
    return (
-    <div>
-      <Button variant="contained" onClick={()=> exportarPDF()}> <PictureAsPdfIcon/> Gerar PDF</Button>
-     <table>
-      <tr>
-        <td>Nome</td>
-        <td>E-mail</td>
-       </tr>
-       {usuarios.map((usuario) =>
-         <tr key={usuario.id}>
-          <td>{usuario.nome}</td>
-          <td>{usuario.email}</td>
-          <td><button onClick={()=> apagar(usuario.id)}> Apagar  </button></td>
-        </tr>
-      )}
-     </table>
-     </div>
+   <main>
+    <Button variant="contained" onClick={()=> exportarPDF()}> <PictureAsPdfIcon/> Gerar PDF</Button>
+    <Produtos produtos={produtos}/>
+   </main>
   );
 }
