@@ -5,64 +5,86 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-let usuarios = [];
+let produtos = [];
 
-app.post('/usuarios', (req, res) => {
-    const { nome, email } = req.body;
-    
-    if (!nome || !email) {
-        return res.status(400).json({ erro: 'Nome e email são obrigatórios' });
+// Criar um novo produto
+app.post('/produtos', (req, res) => {
+    const { nome, descricao, preco, categoria, disponibilidade, tamanho, codigo } = req.body;
+
+    // Validação de campos obrigatórios
+    if (!nome || !descricao || !preco || !categoria || !disponibilidade || !tamanho || !codigo) {
+        return res.status(400).json({ erro: 'Todos os campos são obrigatórios.' });
     }
 
-    const novoUsuario = { id: usuarios.length + 1, nome, email };
-    usuarios.push(novoUsuario);
-    
-    res.status(201).json(novoUsuario);
+    const novoProduto = {
+        id: produtos.length + 1,
+        nome,
+        descricao,
+        preco,
+        categoria,
+        disponibilidade,
+        tamanho,
+        codigo
+    };
+
+    produtos.push(novoProduto);
+    res.status(201).json(novoProduto);
 });
 
-app.get('/usuarios', (req, res) => {
-    res.status(200).json(usuarios);
+// Obter todos os produtos
+app.get('/produtos', (req, res) => {
+    res.status(200).json(produtos);
 });
 
-app.get('/usuarios/:id', (req, res) => {
+// Obter um produto específico pelo ID
+app.get('/produtos/:id', (req, res) => {
     const { id } = req.params;
-    const usuario = usuarios.find(u => u.id === parseInt(id));
-    
-    if (!usuario) {
-        return res.status(404).json({ erro: 'Usuário não encontrado' });
+    const produto = produtos.find(p => p.id === parseInt(id));
+
+    if (!produto) {
+        return res.status(404).json({ erro: 'Produto não encontrado.' });
     }
-    
-    res.status(200).json(usuario);
+
+    res.status(200).json(produto);
 });
 
-app.put('/usuarios/:id', (req, res) => {
+// Atualizar informações de um produto
+app.put('/produtos/:id', (req, res) => {
     const { id } = req.params;
-    const { nome, email } = req.body;
-    
-    const usuario = usuarios.find(u => u.id === parseInt(id));
-    
-    if (!usuario) {
-        return res.status(404).json({ erro: 'Usuário não encontrado' });
+    const { nome, descricao, preco, categoria, disponibilidade, tamanho, codigo } = req.body;
+
+    const produto = produtos.find(p => p.id === parseInt(id));
+
+    if (!produto) {
+        return res.status(404).json({ erro: 'Produto não encontrado.' });
     }
-    
-    usuario.nome = nome || usuario.nome;
-    usuario.email = email || usuario.email;
-    
-    res.status(200).json(usuario);
+
+    // Atualizar apenas os campos fornecidos
+    produto.nome = nome || produto.nome;
+    produto.descricao = descricao || produto.descricao;
+    produto.preco = preco || produto.preco;
+    produto.categoria = categoria || produto.categoria;
+    produto.disponibilidade = disponibilidade || produto.disponibilidade;
+    produto.tamanho = tamanho || produto.tamanho;
+    produto.codigo = codigo || produto.codigo;
+
+    res.status(200).json(produto);
 });
 
-app.delete('/usuarios/:id', (req, res) => {
+// Deletar um produto
+app.delete('/produtos/:id', (req, res) => {
     const { id } = req.params;
-    const index = usuarios.findIndex(u => u.id === parseInt(id));
-    
+    const index = produtos.findIndex(p => p.id === parseInt(id));
+
     if (index === -1) {
-        return res.status(404).json({ erro: 'Usuário não encontrado' });
+        return res.status(404).json({ erro: 'Produto não encontrado.' });
     }
-    
-    usuarios.splice(index, 1);
+
+    produtos.splice(index, 1);
     res.status(204).send();
 });
 
+// Iniciar o servidor
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
