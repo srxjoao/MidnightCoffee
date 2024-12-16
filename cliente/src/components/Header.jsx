@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import '../global.css';
+import styles from '../style/header.module.css'
 export default function Header(){
     return(
         <>
-        <header>
-            <img src=""></img>
+        <header className={styles.header}>
+           
+            <img src="./public/logo.png"></img>
         <nav>
             <ul>
                 <Link to="/">
@@ -20,5 +21,5 @@ export default function Header(){
         </nav>
         </header>
         </>
-    )
+    );
 }
