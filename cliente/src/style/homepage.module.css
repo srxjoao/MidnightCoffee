@@ -1,0 +1,24 @@
+.homepage{
+
+}
+
+.butonFilter{
+    background-color: #F3A258;
+    color: #273617;
+    border: none;
+    border-radius: 10px;
+    height: 75px;
+    width: 75px;
+    margin-top: 15px;
+    margin: 15px;
+    justify-content: space-evenly;
+    transition: transform 0.3s ease;
+}
+
+.butonFilter:hover{
+    background-color: #273617;
+    color: #BC6C25;
+    font-style: italic;
+    box-shadow: #013C5A 1.5px 2px 1.5px 2px;
+    transform: scale(1.1);
+}

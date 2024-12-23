@@ -1,6 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FCF3E4;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
 header {
     background-color: #013C5A;
-    color: white;
     text-align: center;
     padding: 20px;
     text-decoration: none;
@@ -19,17 +27,43 @@ nav li {
 
 link{
     text-decoration:none;
+    color: inherit;
 }
 
 nav li {
     text-decoration: none;
     font-size: 20px;
     font-family: "Poppins", sans-serif;
-    color:#BDD4CE;
+    color:#dcfef9;
+}
+
+nav li:hover{
+    color: #F3A258;
+    font-style:italic;
+    font-size: larger;
 }
 
 header img{
-    width:150px;
-    padding:0px;
+    height: 180px;
+    margin-left: auto;
+    flex-direction: row;
+}
 
+input{
+    width: 249px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    background-color: #F3A258;
+    color: #013C5A;
+    border-radius: 85px;
+}
+
+input:hover{
+    background-color: #273617;
+    border-bottom: #273617;
+    color: #F3A258;
+    border-radius: 16px;
+    border: none;
+    box-shadow: #F3A258 1px 2px 1px 2px;
 }

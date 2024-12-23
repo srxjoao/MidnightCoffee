@@ -1,5 +1,12 @@
-.register{
-    display: flex;
-    flex-direction: column;
+form{
+    background-color: #4584;
 }
 
+form input{
+    background-color: #273617;
+    color: #fff;
+    width: 180px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+}

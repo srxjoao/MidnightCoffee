@@ -1,6 +1,7 @@
-  import { useState } from "react";
-  import { useNavigate } from "react-router-dom"
-  import styles from '../style/register.module.css'
+   import { useState } from "react";
+   import { useNavigate } from "react-router-dom"
+   import styles from '../style/register.module.css'
+   import Header from "../components/Header";
     export default function Registrar() {
       //aspa simples para texto
     const [nome , setNome] = useState('');
@@ -43,13 +44,14 @@
         }
     return (
       <main className={styles.register}>
+        <Header/>
         <center>
         <h1>
         Cadastrar Produto
         </h1>
         </center>
         <form className={styles.form} onSubmit={criaProduto}>
-          <label>
+          <label className={styles.dados}>
             Nome
             <input 
             type="text"
