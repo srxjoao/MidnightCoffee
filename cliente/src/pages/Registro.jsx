@@ -50,11 +50,14 @@
         Cadastrar Produto
         </h1>
         </center>
+        
         <form className={styles.form} onSubmit={criaProduto}>
+          <center>
           <label className={styles.dados}>
-            Nome
             <input 
+            className={styles.prencheDados}
             type="text"
+            placeholder="Nome"
             value={nome}
             //ação de alteração, modificando o estado salvando cada caracter, salvando com informações anteriores e assim formando um estado
             // dispara a informação e salva dentro do estado
@@ -62,62 +65,71 @@
             </input>
             </label>
           <label>
-            Descrição
-            <input
+
+            <input 
+            className={styles.prencheDados}
             type="text"
+            placeholder="Descrição"
             value={descricao}
             onChange = {(event) => setDescricao(event.target.value)}>
             </input>
           </label>
           <label>
-            Preço
             <input
-          type="number"
+            className={styles.prencheDados}
+            type="number"
+            placeholder="Preço"
             value={preco}
             onChange = {(event) => setPreco(event.target.value)}>
             </input>
           </label>
           <label>
-            Categoria
             <input
+            className={styles.prencheDados}
             type="text"
+            placeholder="Categoria"
             value={categoria}
             onChange = {(event) => setCategoria(event.target.value)}>
             </input>
           </label>
           <label>
-          Disponibilidade
             <input
+            className={styles.prencheDados}
             type="text"
+            placeholder="Disponibilidade"
             value={disponibilidade}
             onChange = {(event) => setDisponibilidade(event.target.value)}>
             </input>
           </label>
           <label>
-          Tamanho
             <input
+            className={styles.prencheDados}
             type="text"
+            placeholder="Tamanho"
             value={tamanho}
             onChange = {(event) => setTamanho(event.target.value)}>
             </input>
           </label>
           <label>
-          Código
             <input
+            className={styles.prencheDados}
             type="text"
+            placeholder="Código"
             value={codigo}
             onChange = {(event) => setCodigo(event.target.value)}>
             </input>
           </label>
           <label>
-            Imagem
-            <input
+            <input 
+            className={styles.prencheDados}
             type="text"
+            placeholder="Imagem"
             value={imagem}
             onChange = {(event) => setImagem(event.target.value)}>
             </input>
           </label>
-          <button type="subimt" onClick={criaProduto}>Criar Produto</button>
+          <button className={styles.enviaDados}  type="subimt" onClick={criaProduto}>Cadastrar Produto</button>
+          </center>
         </form>
       </main>
     );
