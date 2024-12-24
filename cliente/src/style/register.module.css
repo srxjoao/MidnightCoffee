@@ -6,6 +6,10 @@ form{
    margin-left: 30%;
    border-radius: 15px;
    box-shadow: #BC6C25 1px 2px 1px 2px ;
+   margin-bottom: 15px;
+   display: flex; /* Habilita o Flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
 }
 h1{
     font-family: "Indie Flower", serif;
@@ -20,13 +24,13 @@ label .enviaDados{
 
 .prencheDados{
     background-color: #013C5A;
-    width: 180px;
+    color:#fff;
     height: 35px;
     border: none;
-    border-radius: 5px;
-    display: block;
-    padding: 5px;
     margin-top:15px;
+    width: 90%; /* Faz o input se ajustar ao card */
+    padding: 5px;
+    border-radius: 5px;
     text-align: center;
 }
 

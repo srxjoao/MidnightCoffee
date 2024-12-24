@@ -1,11 +1,10 @@
   import jsPDF from 'jspdf';
   import 'jspdf-autotable'
   import { useEffect, useState } from "react";
-  import {Button} from "@mui/material"
-  import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
   import Produtos from "../components/Produtos";
-  import Header from "../components/Header"
-  import styles from "../style/homepage.module.css"
+  import Header from "../components/Header";
+  import Footer from "../components/Footer";
+  import styles from "../style/homepage.module.css";
   export default function Home() {
     const [produtos, setProdutos] = useState([]);
     useEffect(() => {
@@ -52,6 +51,7 @@
         </center>
       </div>
       <Produtos produtos={produtos}/>
+      <Footer desenvolvedor={"Desenvolvido por João Pedro Oliveira 👨🏻‍💻🩵"}/>
     </main>
     );
   }

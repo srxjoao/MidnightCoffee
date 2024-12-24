@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import styles from '../style/containerProdutos.module.css'
 export default function Produtos({produtos}){
       const apagar = async(id) => {
           try{
@@ -10,24 +11,28 @@ export default function Produtos({produtos}){
           }
         }    
   return(
-      <div>
+      <div className={styles.containerProdutos}>
       {produtos.map((produtos) =>
-        <div className='produtos' key={produtos.id} >
+        <div className={styles.produtos}  key={produtos.id} >
          <div>
           {produtos.image}
           <img src={produtos.imagem} style={{ width: "100px", height: "auto", borderRadius: "5px" }} />
         </div>
-          <p>{produtos.nome}</p>
-          <p>{produtos.descricao}</p>
-          <p>{produtos.preco}</p>
-          <p>{produtos.categoria}</p>
-          <p>{produtos.disponibilidade}</p>
-          <p>{produtos.tamanho}</p>
-          <p>{produtos.codigo}</p>
+        <center>
+          <p>Produto: {produtos.nome}</p>
+          <p>Descrição: {produtos.descricao}</p>
+          <p>R$ {produtos.preco}</p>
+          <p>Categoria: {produtos.categoria}</p>
+          <p>Disponibilidade: {produtos.disponibilidade}</p>
+          <p>Tamanho: {produtos.tamanho}</p>
+          <p>Codigo: {produtos.codigo}</p>
+          </center>
+          <center>
         <Link to={'/alterar/' + produtos.id}>
-        <button>Alterar</button>
+        <button className={styles.buttonAlter} >Alterar</button>
         </Link>
-          <button onClick={()=> apagar(produtos.id)}> Apagar  </button>
+          <button className={styles.buttonDelete}  onClick={()=> apagar(produtos.id)}> Apagar  </button>
+          </center>
         </div>
       )}
     </div>

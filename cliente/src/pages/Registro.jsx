@@ -2,6 +2,7 @@
    import { useNavigate } from "react-router-dom"
    import styles from '../style/register.module.css'
    import Header from "../components/Header";
+   import Footer from "../components/Footer";
     export default function Registrar() {
       //aspa simples para texto
     const [nome , setNome] = useState('');
@@ -38,9 +39,9 @@
           navigate("/")
         }
         }catch{
-        alert("Deu erro baby");
+        alert("Ocorreu um erro durante a execução do cadastro, tente novamente mais tarde!");
         }
-        alert("Dados salvos!");
+        alert(" Produto cadastrado com sucesso!");
         }
     return (
       <main className={styles.register}>
@@ -131,6 +132,7 @@
           <button className={styles.enviaDados}  type="subimt" onClick={criaProduto}>Cadastrar Produto</button>
           </center>
         </form>
+              <Footer desenvolvedor={"Desenvolvido por João Pedro Oliveira 👨🏻‍💻🩵"}/>
       </main>
     );
   }

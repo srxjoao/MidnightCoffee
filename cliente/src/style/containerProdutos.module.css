@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IM+Fell+Double+Pica+SC&family=Indie+Flower&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Prociono&display=swap');
+.produtos{
+    background-color: #6F8D69;
+    width: 450px;
+    height: 460px;
+    border-radius: 20px;
+    margin: 20px;
+    max-width: 900px;
+    float: left;
+    font-family: "IM Fell Double Pica SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: 1px 2px 1px 2px #F3A258;
+    transition: background-color 0.4s ease;
+}
+.produtos img{
+    max-width: 100%;
+    width: 50%;
+    height: auto;
+    display: block; 
+    margin: 0 auto;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.produtos:hover{
+    background-color: #013C5A; 
+    color: #fff;
+    box-shadow: 1px 2px 1px 2px #BC6C25;
+    animation: vibrate 0.3s ease-in-out; 
+}
+
+
+
+.buttonAlter, .buttonDelete{
+    background-color: #F3A258;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 15px ;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.buttonAlter:hover, .buttonDelete:hover{
+    background-color: #273617;
+    color: #BC6C25;
+    box-shadow: 1px 2px 1px 2px #6F8D69;
+}
+
