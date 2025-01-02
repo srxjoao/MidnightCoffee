@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #FCF3E4;
@@ -8,13 +9,13 @@ body {
     color: inherit;
 }
 
-
-header {
+.header {
     background-color: #013C5A;
     text-align: center;
     padding: 20px;
     text-decoration: none;
 }
+
 
 nav ul {
     text-decoration: none;
@@ -39,13 +40,15 @@ nav li {
     color:#dcfef9;
 }
 
+
+
 nav li:hover{
     color: #F3A258;
     font-style:italic;
     font-size: larger;
 }
 
-header img{
+.header img{
     height: 180px;
     margin-left: auto;
     flex-direction: row;
