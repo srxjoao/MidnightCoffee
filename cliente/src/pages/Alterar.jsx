@@ -3,7 +3,7 @@ export default function Alterar(){
     const {id}  = useParams();
    return(
     <>
-    <h2>Págiana de Alteração de Produto {id} </h2>
+    <h2>Págiana de Alteração de Produto {id} </h2>    
     </>
    );
 }
