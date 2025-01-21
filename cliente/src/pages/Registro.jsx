@@ -4,7 +4,7 @@
    import Header from "../components/Header";
    import Footer from "../components/Footer";
     export default function Registrar() {
-      //aspa simples para texto
+    //aspa simples para texto
     const [nome , setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [preco, setPreco] = useState('');

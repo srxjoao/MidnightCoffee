@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Registrar from './pages/Registro'
 import Alterar from './pages/Alterar'
-import Login from './pages/Login'
 //Criar a função de alteração, com useEfect
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -12,8 +11,7 @@ createRoot(document.getElementById('root')).render(
        <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path='/Registro' element={<Registrar/>}/>
-            <Route path="/alterar/:id" element={<Alterar />} />            
-            <Route path='Login' element={<Login/>}/>
+            <Route path="/alterar/" element={<Alterar />} />            
        </Routes>
     </BrowserRouter>
   </StrictMode>,

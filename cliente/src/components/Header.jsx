@@ -25,7 +25,6 @@ export default function Header(){
                 </Link>
             </ul>
         </nav>
-        <input placeholder="Buscar Produto" type="search"></input>
         </header>
         </>
     );
