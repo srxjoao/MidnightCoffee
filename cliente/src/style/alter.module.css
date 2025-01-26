@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Indie+Flower&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Prociono&display=swap');
+.alterDados{
+   background-color: #6F8D69;
+   width: 600px;
+   height: 650px;
+   margin-left: 30%;
+   border-radius: 15px;
+   box-shadow: #BC6C25 1px 2px 1px 2px ;
+   margin-bottom: 15px;
+   margin-top: 15px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+h3{
+    font-family: "Indie Flower", serif;
+    color: #013C5A;
+}
+
+.prencheDados{
+    background-color: #013C5A;
+    color:#fff;
+    height: 35px;
+    border: none;
+    margin-top:15px;
+    width: 90%; /* Faz o input se ajustar ao card */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.prencheDados:hover{
+    background-color: #273617;
+    box-shadow: #BC6C25;
+    border-color: #FCF3E4;
+}
+
+.enviaDados{
+  background-color: #273617; 
+  font-family: "Indie Flower", serif;
+  width: 250px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  margin: 25px;
+  font-size: 25px;
+  transition: transform 0.3s ease;
+}
+
+.enviaDados:hover{
+    background-color: #BC6C25;
+    transform: scale(1.2);
+    color: #1d251b;
+}

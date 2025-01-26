@@ -30,8 +30,6 @@
     animation: vibrate 0.3s ease-in-out; 
 }
 
-
-
 .buttonAlter, .buttonDelete{
     background-color: #F3A258;
     color: white;

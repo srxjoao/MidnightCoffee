@@ -8,7 +8,7 @@ import styles from "../style/homepage.module.css";
 export default function Home() {
   const [produtos, setProdutos] = useState([]);
   useEffect(() => {
-    const buscarUsuario = async () => {
+    const buscarProdutos = async () => {
       try {
         const resposta = await fetch("http://localhost:3000/produtos");
         const dados = await resposta.json();
@@ -17,12 +17,33 @@ export default function Home() {
         alert('A aplicação esta funcionando =)');
       }
     }
-    buscarUsuario();
+    buscarProdutos();
   }, [produtos])
-      // Gera PDF
-      const exportarPDF = () => {
-        const doc = new jsPDF();
-        const tabela = produtos.map( produtos => [
+
+  const ordemAZ = () =>{
+    const listaAux = [...produtos].sort((a,b)=> a.nome.localeCompare(b.nome));
+    setProdutos(listaAux);
+}
+
+const ordemZA = () =>{
+    const listaAux2 = [...produtos].sort((z,y)=> y.nome.localeCompare(z.nome));
+    setProdutos(listaAux2)
+}
+
+const MenorPreco = () => {
+    const listPreco = [...produtos].sort((a, b) => a.preco - b.preco);
+    setProdutos(listPreco);
+  }
+
+  const MaiorPreco = () => {
+    const listPrecoMaior = [...produtos].sort((a, b) => b.preco - a.preco);
+    setProdutos(listPrecoMaior);
+  };
+
+         // Gera PDF
+         const exportarPDF = () => {
+         const doc = new jsPDF();
+         const tabela = produtos.map( produtos => [
           produtos.id,
           produtos.nome,
           produtos.descricao,
@@ -39,15 +60,17 @@ export default function Home() {
       });
       doc.save("Relatório_Midnight Coffee")
       }
+
   return (
   <main className={styles.homepage}>
     <Header/>
      <div className={styles.containerFilter} >
      <center>
-      <button className={styles.butonFilter} >Cafés</button>
-      <button className={styles.butonFilter} >Caputinos</button>
-      <button className={styles.butonFilter} >Doces</button>
-      <button  className={styles.butonFilter} onClick={()=> exportarPDF()}> Gerar PDF</button>
+      <button className={styles.butonFilter}  onClick={()=> ordemAZ()} >Filtrar produto de A a Z</button>
+      <button className={styles.butonFilter}  onClick={()=> ordemZA()} >Filtrar produto de Z a A</button>
+      <button className={styles.butonFilter}  onClick={()=> MenorPreco()}>Mennor Preço</button>
+      <button className={styles.butonFilter}  onClick={()=>MaiorPreco ()}>Maior Preço</button>
+      <button  className={styles.butonFilter}  onClick={() => exportarPDF()}> Gerar PDF</button>
       </center>
     </div>
     <Produtos produtos={produtos}/>

@@ -1,14 +1,10 @@
-.homepage{
-
-}
-
 .butonFilter{
     background-color: #F3A258;
     color: #273617;
     border: none;
     border-radius: 10px;
-    height: 75px;
-    width: 75px;
+    height: 55px;
+    width: 135px;
     margin-top: 15px;
     margin: 15px;
     justify-content: space-evenly;
@@ -16,9 +12,9 @@
 }
 
 .butonFilter:hover{
-    background-color: #273617;
-    color: #BC6C25;
+    background-color: #6F8D69;
+    color: #ffffff;
     font-style: italic;
-    box-shadow: #013C5A 1.1px 2px 1.1px 2px;
+    box-shadow: #013C5A 1px 1px 1px 1px;
     transform: scale(1.2);
 }
