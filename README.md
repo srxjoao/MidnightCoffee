@@ -12,7 +12,7 @@
 
 <!--- # "Verify icons availability here https://github.com/tandpfun/skill-icons" -->
 
-[![My Skills](https://skillicons.dev/icons?i=react,css,jspdf,js,express,nodejs,)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=react,css,js,express,nodejs,)](https://skillicons.dev)
 
 ## 🗂 Executar Projeto
 
