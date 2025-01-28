@@ -18,8 +18,17 @@ export default function Home() {
       }
     }
     buscarProdutos();
-  }, [produtos])
-
+  }, [])
+  const apagar = async(id) => {
+    try{
+    await  fetch("http://localhost:3000/produtos/" + id, {
+    method: 'DELETE',
+    });
+    setProdutos(produtos.filter((produto) => produto.id !== id));
+    }catch{
+      alert("Ops ocorreu um erro, não esperado!")
+    }
+  }   
   const ordemAZ = () =>{
     const listaAux = [...produtos].sort((a,b)=> a.nome.localeCompare(b.nome));
     setProdutos(listaAux);
@@ -73,7 +82,7 @@ const MenorPreco = () => {
       <button  className={styles.butonFilter}  onClick={() => exportarPDF()}> Gerar PDF</button>
       </center>
     </div>
-    <Produtos produtos={produtos}/>
+    <Produtos produtos={produtos} apagar={apagar} />
     <Footer desenvolvedor={"Desenvolvido por João Pedro Oliveira 👨🏻‍💻🩵"}/>
   </main>
   );

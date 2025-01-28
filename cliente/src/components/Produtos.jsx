@@ -1,15 +1,7 @@
 import {Link} from 'react-router-dom'
 import styles from '../style/containerProdutos.module.css'
-export default function Produtos({produtos}){
-      const apagar = async(id) => {
-          try{
-          await  fetch("http://localhost:3000/produtos/" + id, {
-          method: 'DELETE',
-          });
-          }catch{
-            alert("Ops ocorreu um erro, não esperado!")
-          }
-        }    
+export default function Produtos({produtos, apagar}){
+ 
   return(
       <div className={styles.containerProdutos}>
       {produtos.map((produtos) =>
