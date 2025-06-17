@@ -46,5 +46,5 @@ $ npm run dev
 
 ## 🧑‍🏫 Professor
 
--Marcelino Vitor dos Santos Garcia - Programação e Tecnologias Para Aplicações Cliente 2 
-
+- Marcelino Vitor dos Santos Garcia - Programação e Tecnologias Para Aplicações Cliente 2 
+ 
